@@ -5,7 +5,7 @@ function cloneSheet() {
   var activeSheet = ss.getSheetByName("old");
   var A1 = activeSheet.getRange('A1').getValue();// Nama sheet baru
   
-  var sheet = ss.getSheetByName('I').copyTo(ss);
+  var sheet = ss.getSheetByName('old').copyTo(ss);
 
   SpreadsheetApp.flush(); // Utilities.sleep(2000);
   sheet.setName(A1);
