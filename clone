@@ -1,0 +1,20 @@
+var openIDG = SpreadsheetApp.openById("IDSPREADSHEET");
+
+function cloneSheet() {
+var chuckNorrisJSON = UrlFetchApp.fetch(urlGetUp);
+var chuckNorrisObject = JSON.parse(chuckNorrisJSON);
+var myJSON = JSON.stringify(chuckNorrisObject);
+
+  var ss = openIDG;
+  var activeSheet = ss.getSheetByName("old");
+  var A1 = activeSheet.getRange('A1').getValue();// Nama sheet baru
+  
+  var sheet = ss.getSheetByName('I').copyTo(ss);
+
+  SpreadsheetApp.flush(); // Utilities.sleep(2000);
+  sheet.setName(A1);
+
+  /* Make the new sheet active */
+  ss.setActiveSheet(sheet);
+
+}
